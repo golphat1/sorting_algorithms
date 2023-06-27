@@ -2,27 +2,27 @@
 #include <stdio.h>
 
 /**
-  * bubble_sort - Function for bubble sorting.
-  * @array: Array to sort.
-  * @size: Length of array.
-  * Return: Nothing.
-  */
+ * bubble_sort - sorts an array in ascending order
+ * @array: array of ints to sort
+ * @size: size of the array
+ */
 void bubble_sort(int *array, size_t size)
 {
-	size_t x = 0, j = 0;
-	int aux = 0;
+	unsigned int i, j;
+	int x;
 
-	if (array == NULL || size == 0)
+	if (size < 2)
 		return;
-	for (; x < size - 1; x++)
+
+	for (i = 0; i < size; i++)
 	{
-		for (j = 0; j < size - x - 1; j++)
+		for (j = 0; j < size - i - 1; j++)
 		{
 			if (array[j] > array[j + 1])
 			{
-				aux = array[j + 1];
-				array[j + 1] = array[j];
-				array[j] = aux;
+				x = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = x;
 				print_array(array, size);
 			}
 		}
